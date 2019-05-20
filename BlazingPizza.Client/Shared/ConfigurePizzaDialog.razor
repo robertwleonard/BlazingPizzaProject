@@ -1,4 +1,5 @@
 ﻿@inject HttpClient HttpClient
+@inject OrderState OrderState
 
 <div class="dialog-container">
     <div class="dialog">
@@ -88,6 +89,7 @@
     void RemoveTopping(Topping topping)
     {
         Pizza.Toppings.RemoveAll(pt => pt.Topping == topping);
+        StateHasChanged();
     }
 }
 
