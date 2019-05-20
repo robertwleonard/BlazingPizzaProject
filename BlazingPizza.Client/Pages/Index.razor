@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject HttpClient HttpClient
+@inject IUriHelper UriHelper
 
 <div class="main">
     <ul class="pizza-cards">
@@ -99,5 +100,7 @@
     {
         await HttpClient.PostJsonAsync("orders", order);
         order = new Order();
+
+        UriHelper.NavigateTo("myorders");
     }
 }
